@@ -1,0 +1,176 @@
+:root {
+    --cuvva-blue: #0052CC;
+    --cuvva-light-blue: #4C9AFF;
+    --cuvva-dark: #172B4D;
+    --cuvva-gray: #7A869A;
+    --cuvva-light-gray: #F4F5F7;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: white;
+    color: var(--cuvva-dark);
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--cuvva-dark);
+}
+
+.timer {
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 3rem 0;
+    color: var(--cuvva-dark);
+    line-height: 1;
+    padding: 2rem;
+    background: var(--cuvva-light-gray);
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.controls button {
+    flex: 1;
+    max-width: 160px;
+    min-width: 120px;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: white;
+    color: var(--cuvva-dark);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#workMode {
+    background: var(--cuvva-blue);
+    color: white;
+}
+
+#workMode:hover:not(.inactive) {
+    background: var(--cuvva-light-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#restMode {
+    background: var(--cuvva-light-gray);
+    color: var(--cuvva-dark);
+}
+
+#restMode:hover:not(.inactive) {
+    background: #E6E8EC;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#pauseButton:not([data-state="continue"]) {
+    background: var(--cuvva-light-gray);
+    color: var(--cuvva-dark);
+}
+
+#pauseButton:not([data-state="continue"]):hover:not(.inactive) {
+    background: #E6E8EC;
+    transform: translateY(-1px);
+}
+
+#pauseButton[data-state="continue"] {
+    background: var(--cuvva-blue);
+    color: white;
+}
+
+#pauseButton[data-state="continue"]:hover:not(.inactive) {
+    background: var(--cuvva-light-blue);
+    transform: translateY(-1px);
+}
+
+#reset {
+    background: var(--cuvva-light-gray);
+    color: var(--cuvva-dark);
+}
+
+#reset:hover:not(.inactive) {
+    background: #E6E8EC;
+    transform: translateY(-1px);
+}
+
+.controls button.inactive {
+    background: var(--cuvva-light-gray);
+    color: var(--cuvva-gray);
+    cursor: not-allowed;
+    opacity: 0.5;
+    box-shadow: none;
+    transform: none;
+}
+
+.status {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: var(--cuvva-gray);
+    font-weight: 500;
+}
+
+.mode-toggle {
+    margin: 1rem 0;
+}
+
+.mode-toggle button {
+    font-size: 1rem;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.mode-toggle button:hover {
+    background-color: #1976D2;
+}
+
+.mode-toggle button.active {
+    background-color: #1565C0;
+}
+
+#continue.inactive {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .timer {
+        font-size: 4rem;
+    }
+    
+    .controls button {
+        width: 100%;
+    }
+}
